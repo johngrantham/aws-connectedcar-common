@@ -3,7 +3,7 @@
 source config.sh
 
 group="/aws/lambda/${service}_Admin_CreateDealer_${environment}"
-pattern="exception"
+pattern="stack trace"
 
 aws logs tail $group \
     --format short \
