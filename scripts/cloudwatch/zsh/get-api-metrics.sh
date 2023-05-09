@@ -5,7 +5,7 @@ source config.sh
 start=$(date -u -v-30M +"%Y-%m-%dT%H:%M:%S")
 end=$(date -u +"%Y-%m-%dT%H:%M:%S")
 
-dimensions="Name=ApiName,Value=${service}_Admin_API_${environment} Name=Stage,Value=api"
+dimensions=Name=ApiName,Value=${service}_Admin_API_${environment} Name=Stage,Value=${stage}
 
 aws cloudwatch get-metric-statistics \
     --namespace AWS/ApiGateway \
@@ -13,6 +13,6 @@ aws cloudwatch get-metric-statistics \
     --dimensions ${dimensions} \
     --start-time ${start} \
     --end-time ${end} \
-    --period 60 \
+    --period 30 \
     --statistics Average \
     --output text
