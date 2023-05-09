@@ -42,8 +42,8 @@ function output_service_metrics {
   echo " "
 
   for table in ${tables[@]}; do
-    dimensions="Name=TableName,Value=${service}_${table}_${environment}"
-    item="${service}_${table}_${environment}"
+    dimensions=Name=TableName,Value=${service}_${table}_Table_${environment}
+    item=${service}_${table}_${environment}
 
     output_item_metric $metric $dimensions $start $end $item
   done
@@ -52,28 +52,30 @@ function output_service_metrics {
   echo "Index metrics for ${metric} for the past hour"
   echo " "
 
-  output_item_metric $metric \
-      "Name=TableName,Value=${service}_Appointment_${environment} Name=GlobalSecondaryIndexName,Value=TimeslotAppointmentIndex" \
-      $start \
-      $end \
-      "TimeslotAppointmentIndex"
+  dimensions=Name=TableName,Value=${service}_Appointment_Table_${environment} Name=GlobalSecondaryIndexName,Value=TimeslotAppointmentIndex
 
   output_item_metric $metric \
-      "Name=TableName,Value=${service}_Appointment_${environment} Name=GlobalSecondaryIndexName,Value=RegistrationAppointmentIndex" \
+      $dimensions \
       $start \
       $end \
-      "RegistrationAppointmentIndex"
+      TimeslotAppointmentIndex
+
+  dimensions=Name=TableName,Value=${service}_Appointment_Table_${environment} Name=GlobalSecondaryIndexName,Value=RegistrationAppointmentIndex
 
   output_item_metric $metric \
-      "Name=TableName,Value=${service}_Registration_${environment} Name=GlobalSecondaryIndexName,Value=VehicleRegistrationIndex" \
+      $dimensions \
       $start \
       $end \
-      "VehicleRegistrationIndex"
+      RegistrationAppointmentIndex
+
+  dimensions=Name=TableName,Value=${service}_Registration_Table_${environment} Name=GlobalSecondaryIndexName,Value=VehicleRegistrationIndex
+
+  output_item_metric $metric \
+      $dimensions \
+      $start \
+      $end \
+      VehicleRegistrationIndex
 }
 
 output_service_metrics "ConsumedReadCapacityUnits"
 output_service_metrics "ConsumedWriteCapacityUnits"
-
-
-
-
