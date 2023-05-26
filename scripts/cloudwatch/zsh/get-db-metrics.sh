@@ -43,7 +43,7 @@ function output_service_metrics {
 
   for table in ${tables[@]}; do
     dimensions=Name=TableName,Value=${service}_${table}_Table_${environment}
-    item=${service}_${table}_${environment}
+    item=${service}_${table}_Table_${environment}
 
     output_item_metric $metric $dimensions $start $end $item
   done
