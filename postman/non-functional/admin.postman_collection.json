@@ -1,0 +1,387 @@
+{
+	"info": {
+		"_postman_id": "7ab90e4a-3f27-48bf-9337-fa2a65b2583d",
+		"name": "Admin_API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18339483"
+	},
+	"item": [
+		{
+			"name": "Customers",
+			"item": [
+				{
+					"name": "Create Customer",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () { ",
+									"  pm.response.to.have.status(201);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"{{username}}\",\n    \"password\": \"$FlipHop123\",\n    \"firstname\": \"John\",\n    \"lastname\": \"Tester\",\n    \"phoneNumber\": \"1-098-765-4321\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{adminApi}}.execute-api.{{region}}.amazonaws.com/{{stage}}/admin/customers",
+							"protocol": "https",
+							"host": [
+								"{{adminApi}}",
+								"execute-api",
+								"{{region}}",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"{{stage}}",
+								"admin",
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Customers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () { ",
+									"  pm.response.to.have.status(200);",
+									"});",
+									"",
+									"const json = pm.response.json();",
+									"const items = json.length;",
+									"",
+									"pm.test(\"Number of items is non-zero\", function () {",
+									"    pm.expect(items).to.be.above(0);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{adminApi}}.execute-api.{{region}}.amazonaws.com/{{stage}}/admin/customers?lastname=stark",
+							"protocol": "https",
+							"host": [
+								"{{adminApi}}",
+								"execute-api",
+								"{{region}}",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"{{stage}}",
+								"admin",
+								"customers"
+							],
+							"query": [
+								{
+									"key": "lastname",
+									"value": "stark"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Customer",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () { ",
+									"  pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{adminApi}}.execute-api.{{region}}.amazonaws.com/{{stage}}/admin/customers/{{username}}",
+							"protocol": "https",
+							"host": [
+								"{{adminApi}}",
+								"execute-api",
+								"{{region}}",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"{{stage}}",
+								"admin",
+								"customers",
+								"{{username}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vehicles",
+			"item": [
+				{
+					"name": "Create Vehicle",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () { ",
+									"  pm.response.to.have.status(201);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"vin\": \"{{vin1}}\",\n    \"colors\": {\n        \"exterior\": \"Silver\",\n        \"interior\": \"Black\"\n    },\n    \"vehiclePin\": \"{{vehiclePin}}\",\n    \"vehicleCode\": \"Turbo\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{adminApi}}.execute-api.{{region}}.amazonaws.com/{{stage}}/admin/vehicles",
+							"protocol": "https",
+							"host": [
+								"{{adminApi}}",
+								"execute-api",
+								"{{region}}",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"{{stage}}",
+								"admin",
+								"vehicles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Vehicle",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () { ",
+									"  pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{adminApi}}.execute-api.{{region}}.amazonaws.com/{{stage}}/admin/vehicles/{{vin1}}",
+							"protocol": "https",
+							"host": [
+								"{{adminApi}}",
+								"execute-api",
+								"{{region}}",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"{{stage}}",
+								"admin",
+								"vehicles",
+								"{{vin1}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Registrations",
+			"item": [
+				{
+					"name": "Create Registration",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () { ",
+									"  pm.response.to.have.status(201);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"{{username}}\",\n    \"vin\": \"{{vin1}}\",\n    \"statusCode\": \"Active\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{adminApi}}.execute-api.{{region}}.amazonaws.com/{{stage}}/admin/customers/{{username}}/registrations",
+							"protocol": "https",
+							"host": [
+								"{{adminApi}}",
+								"execute-api",
+								"{{region}}",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"{{stage}}",
+								"admin",
+								"customers",
+								"{{username}}",
+								"registrations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Registration",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () { ",
+									"  pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{adminApi}}.execute-api.{{region}}.amazonaws.com/{{stage}}/admin/customers/{{username}}/registrations/{{vin1}}",
+							"protocol": "https",
+							"host": [
+								"{{adminApi}}",
+								"execute-api",
+								"{{region}}",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"{{stage}}",
+								"admin",
+								"customers",
+								"{{username}}",
+								"registrations",
+								"{{vin1}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "{{apiKey}}",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "x-api-key",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.globals.set(\"username\", \"USER1234567890\");",
+					"pm.globals.set(\"vin1\", \"VIN1234567890\");",
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
