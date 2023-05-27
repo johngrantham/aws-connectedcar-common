@@ -368,9 +368,16 @@
 			"script": {
 				"type": "text/javascript",
 				"exec": [
-					"pm.globals.set(\"username\", \"USER1234567890\");",
-					"pm.globals.set(\"vin1\", \"VIN1234567890\");",
-					""
+					"if (pm.variables.has(\"running\") == false) {",
+					"    const moment = require('moment');",
+					"    const startDate = moment().format(\"YYYY-MM-DD\");",
+					"    const endDate = moment().add(30, 'day').format(\"YYYY-MM-DD\");",
+					"    const timestamp = new Date().getTime();",
+					"",
+					"    pm.globals.set(\"username\", \"USER\" + timestamp);",
+					"    pm.globals.set(\"vin1\", \"VIN1\" + timestamp);",
+					"    pm.variables.set(\"running\",\"true\");",
+					"}"
 				]
 			}
 		},
