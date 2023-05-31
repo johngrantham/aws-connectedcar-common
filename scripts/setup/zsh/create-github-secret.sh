@@ -1,8 +1,8 @@
 #!/bin/zsh
 
-token="1234567890"
+token="[enter personal access token]"
 
 aws secretsmanager create-secret \
     --name personal-access-token \
     --description "My github personal access token" \
-    --secret-string "{\"personal-access-token\":\"${token}\"}"
+    --secret-string "{\"token\":\"${token}\"}"
