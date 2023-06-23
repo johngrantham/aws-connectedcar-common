@@ -24,10 +24,16 @@ Set-CGIPUserPasswordAdmin `
     -Permanent true `
     -UserPoolId $userPoolId
 
+$parameters = @{
+  USERNAME = $username,
+  PASSWORD = $password,
+  SECRET_HASH = $hashEncoded
+}
+
 $response = Start-CGIPAuthAdmin `
     -ClientId $clientId `
     -AuthFlow ADMIN_USER_PASSWORD_AUTH `
-    -AuthParameter USERNAME=$username,PASSWORD=$password,SECRET_HASH=$hashEncoded `
+    -AuthParameter $parameters `
     -UserPoolId $userPoolId `
 
 $token=response.AuthenticationResult.AccessToken
