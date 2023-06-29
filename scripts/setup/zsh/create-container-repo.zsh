@@ -1,5 +1,5 @@
 #!/bin/zsh
 
-source config.sh
+source config.zsh
 
 aws ecr create-repository --repository-name ${serviceLower}-${environmentLower} --region ${region}

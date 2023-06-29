@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-source config.sh
+source config.zsh
 
 start=$(date -u -v-1H +"%Y-%m-%dT%H:%M:%S")
 end=$(date -u +"%Y-%m-%dT%H:%M:%S")

@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-source config.sh
+source config.zsh
 
 bucket=${serviceLower}-deployment-${number}
 

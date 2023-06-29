@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-source config.sh
+source config.zsh
 
 bucket="${serviceLower}-terraform-${number}"
 table="${service}_Terraform_LockingTable"

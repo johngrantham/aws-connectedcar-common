@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-source config.sh
+source config.zsh
 
 domain=$(aws cloudformation describe-stacks \
     --stack-name ${service}${environment} \

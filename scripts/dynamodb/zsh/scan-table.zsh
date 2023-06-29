@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-source config.sh
+source config.zsh
 
 aws dynamodb scan \
   --table-name ${service}_Dealer_Table_${environment} \

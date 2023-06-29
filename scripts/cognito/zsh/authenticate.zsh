@@ -1,7 +1,7 @@
 
 #!/bin/zsh
 
-source config.sh
+source config.zsh
 
 userPoolId=$(aws cloudformation describe-stacks \
     --stack-name ${service}${environment} \

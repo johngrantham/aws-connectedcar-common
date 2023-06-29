@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-source config.sh
+source config.zsh
 
 aws dynamodb query \
   --table-name ${service}_Timeslot_Table_${environment} \

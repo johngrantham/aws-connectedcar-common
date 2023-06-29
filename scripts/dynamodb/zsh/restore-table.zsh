@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-source config.sh
+source config.zsh
 
 time=$(date -u -v-10M +"%Y-%m-%dT%H:%M:%S")
 

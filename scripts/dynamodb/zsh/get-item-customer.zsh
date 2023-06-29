@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-source config.sh
+source config.zsh
 
 aws dynamodb get-item \
   --table-name ${service}_Customer_Table_${environment} \

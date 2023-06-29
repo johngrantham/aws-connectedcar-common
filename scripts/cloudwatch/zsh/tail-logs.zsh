@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-source config.sh
+source config.zsh
 
 group="/aws/lambda/${service}_Admin_CreateDealer_${environment}"
 pattern="stack trace"
