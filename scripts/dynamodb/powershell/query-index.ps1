@@ -2,7 +2,7 @@
 . "./config.ps1"
 
 $invokeDDBQuery = @{
-    TableName = "${service}_Timeslot_Table_${environment}"
+    TableName = "${service}_Registration_Table_${environment}"
     IndexName = "VehicleRegistrationIndex"
     KeyConditionExpression = ' vin = :vin'
     ExpressionAttributeValues = @{

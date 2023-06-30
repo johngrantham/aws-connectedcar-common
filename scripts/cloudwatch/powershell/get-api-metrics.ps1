@@ -11,7 +11,7 @@ $stats=(Get-CWMetricStatistic `
     -Namespace AWS/ApiGateway `
     -MetricName Latency `
     -Dimension $dimensions `
-    -Period 60 `
+    -Period 30 `
     -Statistic Average `
     -UtcStartTime $start `
     -UtcEndTime $end).DataPoints[0]

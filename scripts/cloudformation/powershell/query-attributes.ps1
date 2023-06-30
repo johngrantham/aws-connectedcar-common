@@ -27,6 +27,7 @@ $apiKey = (Get-AGApiKeyList `
 
 $apiKeyValue = (Get-AGApiKey -ApiKey $apiKey -IncludeValue 1).Value
 
+Write-Host " "
 Write-Host "Cognito Auth URL: ${domain}.auth.${region}.amazoncognito.com/login"
 Write-Host " "
 

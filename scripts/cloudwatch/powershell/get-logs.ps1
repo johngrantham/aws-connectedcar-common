@@ -1,7 +1,7 @@
 
 . "./config.ps1"
 
-$date = (Get-Date).AddDays(-4)
+$date = (Get-Date).AddDays(-1)
 $epoch = ([datetime] '1970-01-01Z').ToUniversalTime()
 $start = [math]::Round((New-TimeSpan -Start $epoch -End $date).TotalSeconds)
 

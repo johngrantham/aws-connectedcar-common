@@ -7,6 +7,6 @@ $account=(Get-STSCallerIdentity).Account
 $region="us-west-2"
 
 $service="ConnectedCar"
-$environment="Test"
+$environment="Dev"
 
 Set-DefaultAWSRegion -Region ${region}

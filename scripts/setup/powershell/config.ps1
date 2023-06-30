@@ -8,8 +8,8 @@ $region="us-west-2"
 
 $service="ConnectedCar"
 $serviceLower="connectedcar"
-$environment="Test"
-$environmentLower="test"
+$environment="Dev"
+$environmentLower="dev"
 
 $number=(Get-Date -UFormat "%H%M%S")
 
