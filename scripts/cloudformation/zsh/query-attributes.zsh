@@ -33,6 +33,7 @@ apiKey=$(aws apigateway get-api-keys \
     --include-values \
     --output text)
 
+echo " "
 echo "Cognito Auth URL: ${domain}.auth.${region}.amazoncognito.com/login"
 echo " "
 
